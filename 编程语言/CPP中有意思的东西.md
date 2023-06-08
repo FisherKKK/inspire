@@ -13,7 +13,7 @@ auto& GetData(){
 auto* GetData(){
    const char* i = "Hello";
    return i;
- } // 唯一正确
+ } 
 
 auto* GetData(){
    const char[] i = "Hello";
