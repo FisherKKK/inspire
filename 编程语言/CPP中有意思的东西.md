@@ -128,4 +128,40 @@ int main(){S s;}
   }
   ```
 
+  ## 3. C语言中的对齐和填充
   
+  [Structures in C: From Basics to Memory Alignment – Abstract Expression --- C 中的结构：从基础知识到内存对齐 – 抽象表达式](https://abstractexpr.com/2023/06/29/structures-in-c-from-basics-to-memory-alignment/)
+  
+  一般来说结构体中的结构并非是packed结构, 其中是存在填充的, 并进行了如下的布局规定:
+  
+  * 第一个成员的地址和结构体的起始地址相同
+  
+  * 每一个成员之前都有可能存在内存对齐
+  
+  * 结构体末端也会存在填充
+  
+  * 每个类型必须位于其类型大小的倍数
+  
+  * 结构必须获得足够的尾部填充以与其最大的数据类型对齐
+  
+  * 如果需要一个绝对的打包结构可以进行如下的操作:
+  
+    ```c
+    struct s {
+        char a;
+        int b;
+        double c;
+        char d[10];
+    } __attribute__((packed));
+    ```
+
+C语言结构体中另外一个非常有意思的就是Flexible Array Member, 它的结构如下:
+
+```c
+struct DynamicString {
+    int len;
+    char str[];
+};
+```
+
+这和`Redis`中`sds`的设计是一样的, 本质上`str`这个成员是不占据结构的大小, 即**结构体大小将如同最后一个成员不存在一样**
