@@ -363,3 +363,13 @@ numactl --all --physcpubind=$REDIS_CPUS --localalloc redis-server
 perf stat -e task-clock,cycles,instructions,cache-references,cache-misses,branches,branch-misses,faults,minor-faults,cs,migrations -r 3 nice taskset 0x01 ./xxx
 ```
 
+## 7. 一些有用的C++资源
+
+1. [More C++ Idioms - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms)
+2. [Introduction 2016 NUMA Deep Dive Series - frankdenneman.nl](https://frankdenneman.nl/2016/07/06/introduction-2016-numa-deep-dive-series/)
+3. [High Performance Browser Networking (O'Reilly)](https://hpbn.co/)
+4. [Linux Performance](https://www.brendangregg.com/linuxperf.html)
+5. [向量集合是 Redis 的一部分 -  --- Vector Sets are part of Redis - ](https://antirez.com/news/149)
+6. [neomantra/presentations: Presentations I have given](https://github.com/neomantra/presentations)
+7. [优化 Web 服务器以实现高吞吐量和低延迟 - Dropbox --- Optimizing web servers for high throughput and low latency - Dropbox](https://dropbox.tech/infrastructure/optimizing-web-servers-for-high-throughput-and-low-latency)
+8. [Optimizing Nginx for High Traffic Loads](https://blog.martinfjordvald.com/optimizing-nginx-for-high-traffic-loads/)
