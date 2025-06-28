@@ -355,3 +355,11 @@ export REDIS_CPUS=1
 numactl --all --physcpubind=$REDIS_CPUS --localalloc redis-server
 ```
 
+## 6. 常用的Profile命令和工具
+
+一个常用的bash脚本，观测程序的主要卡点
+
+```sh
+perf stat -e task-clock,cycles,instructions,cache-references,cache-misses,branches,branch-misses,faults,minor-faults,cs,migrations -r 3 nice taskset 0x01 ./xxx
+```
+
