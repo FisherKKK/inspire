@@ -373,3 +373,16 @@ perf stat -e task-clock,cycles,instructions,cache-references,cache-misses,branch
 6. [neomantra/presentations: Presentations I have given](https://github.com/neomantra/presentations)
 7. [优化 Web 服务器以实现高吞吐量和低延迟 - Dropbox --- Optimizing web servers for high throughput and low latency - Dropbox](https://dropbox.tech/infrastructure/optimizing-web-servers-for-high-throughput-and-low-latency)
 8. [Optimizing Nginx for High Traffic Loads](https://blog.martinfjordvald.com/optimizing-nginx-for-high-traffic-loads/)
+
+## 8. 可以后续阅读的内容
+
+- [ ] [Bjarne Stroustrup's Homepage](https://www.stroustrup.com/)
+- [ ] [C 和 C++编译器选项强化指南 | Hacker News --- Compiler Options Hardening Guide for C and C++ | Hacker News](https://news.ycombinator.com/item?id=43533516)
+- [ ] [C++绝对超棒 | Hacker News --- C++ is an absolute blast | Hacker News](https://news.ycombinator.com/item?id=42495135)
+- [ ] [C++的两个派系 | Hacker News --- The two factions of C++ | Hacker News](https://news.ycombinator.com/item?id=42231489)
+- [ ] [Matt Godbolt 通过向我展示 C++让我对 Rust 产生了兴趣 | Hacker News --- Matt Godbolt sold me on Rust by showing me C++ | Hacker News](https://news.ycombinator.com/item?id=43907820)
+- [ ] [《初始化在 C++中真疯狂（2017）| Hacker News》 --- Initialization in C++ is bonkers (2017) | Hacker News](https://news.ycombinator.com/item?id=43999492)
+- [ ] [0+0 > 0: C++线程本地存储性能 | Hacker News --- 0+0 > 0: C++ thread-local storage performance | Hacker News](https://news.ycombinator.com/item?id=43077675)
+- [ ] [我最喜欢的 C++模式：X 宏 (2023) | Hacker News --- My Favorite C++ Pattern: X Macros (2023) | Hacker News](https://news.ycombinator.com/item?id=43472143)
+- [ ] [C++模板宏编程与 Lisp 宏 | Hacker News --- C++ template macroprogramming versus Lisp macros | Hacker News](https://news.ycombinator.com/item?id=42150206)
+- [ ] [C 和 C++优先考虑性能而非正确性（2023）| Hacker News --- C and C++ prioritize performance over correctness (2023) | Hacker News](https://news.ycombinator.com/item?id=43509524)
