@@ -386,3 +386,14 @@ perf stat -e task-clock,cycles,instructions,cache-references,cache-misses,branch
 - [ ] [我最喜欢的 C++模式：X 宏 (2023) | Hacker News --- My Favorite C++ Pattern: X Macros (2023) | Hacker News](https://news.ycombinator.com/item?id=43472143)
 - [ ] [C++模板宏编程与 Lisp 宏 | Hacker News --- C++ template macroprogramming versus Lisp macros | Hacker News](https://news.ycombinator.com/item?id=42150206)
 - [ ] [C 和 C++优先考虑性能而非正确性（2023）| Hacker News --- C and C++ prioritize performance over correctness (2023) | Hacker News](https://news.ycombinator.com/item?id=43509524)
+- [ ] [Welcome to Johnny's Software Lab! - Johnny's Software Lab](https://johnnysswlab.com/)，**高优，质量不错**
+
+
+
+## 9. SIMD相关
+
+* [Home | SIMD.info](https://simd.info/)，SIMD语义搜索，目前还在开发中
+* [x86/x64 SIMD Instruction List (SSE to AVX512)](https://officedaytime.com/simd512e/)，SIMD指令的可视化
+* [A64 SIMD Instruction List: SVE Instructions](https://dougallj.github.io/asil/)，上面的一个补充
+* [x86 and amd64 instruction reference](https://www.felixcloutier.com/x86/)，x86指令的指南
+
