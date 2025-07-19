@@ -100,8 +100,24 @@ Code agent和RAG相关简介：
     * **TODO:** 可以看一下这个模型的具体细节
     * 来源: [Kimi K2 是一种最先进的专家混合（MoE）语言模型 | Hacker News --- Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model | Hacker News](https://news.ycombinator.com/item?id=44533403)
 
-  
+  ## 2025-07-17 Very Sleepy
 
+  * 机械臂相关更进，这里应该是开源的 [pollen-robotics/AmazingHand: 控制 AH!的代码和模型 --- pollen-robotics/AmazingHand: Code and model to control the AH!](https://github.com/pollen-robotics/AmazingHand)
+  * 美国智能建筑 [《Bedrock Robotics》 --- Bedrock Robotics](https://bedrockrobotics.com/news/introducing-bedrock-robotics)
+  * 将ELO分数加入到RAG的Ranker中 
+    * 看思路的话可能是类似于去学偏好，对query以及召回中采样的两个doc进行对比打分，最后形成ELO得分
+    * 核心在于逆分差得胜会让你的分剧烈变化，反之不然
+    * 为了解决召回质量低，但整体分偏高的问题，引入全局bias。
+    * 来源：[Show HN：使用国际象棋 Elo 分数改进搜索排名 | Hacker News --- Show HN: Improving search ranking with chess Elo scores | Hacker News](https://news.ycombinator.com/item?id=44582662)
   
-
   
+  
+  
+  
+  ## 2025-07-18 Binary Search
+  
+  * Self-Taught Engineers Often Outperform
+    * 有师傅指路固然重要，但是带有明确目标的探索和坚韧不拔才能锻炼出优秀的工程师。也就是说要尝试从头到尾去做一个你没接触过的东西，在这个过程中你会学到很多。
+    * 总的来说就是我们需要带有目的性的钻研，去挑战自己不懂的东西，自己尝试理解解决，而不是依靠教程，博客。不停地探索和试错，这种方式是学习地最好方式，去创造而不是依赖别人。
+    * 有点费米的那个味道
+    * 来源：[Self-Taught Engineers Often Outperform | michaelbastos.com](https://michaelbastos.com/blog/why-self-taught-engineers-often-outperform)
