@@ -65,59 +65,75 @@ Code agent和RAG相关简介：
     * 允许多个监听绑定到同一个端口, 利用内核提供的负载均衡功能
   * 来源: [Reverse proxy deep dive. This post was originally published on… | by mitendra mahto | Jun, 2025 | Medium](https://medium.com/@mitendra_mahto/cross-posted-from-https-startwithawhy-com-reverseproxy-2024-01-15-reverseproxy-deep-dive-html-c3443dc3e0e5)
 
-  ## 2025-07-14 Sleepy
 
-  * 如何跟紧最近AI的进展:
-    * 一手信息永远都是最准确的; 关注值得信赖的人的comment和summary
-      * https://simonwillison.net/tags/ai/, Simon的Blog
-      * Andrej Karpathy
-      * https://every.to/chain-of-thought?sort=newest, 前沿AI的能力
-      * 各家公司的最新进展, blog, guides, cookbooks
-      * AI工程相关工程师
-        * https://hamel.dev/
-        * https://www.sh-reya.com/
-        * https://jxnl.co/
-        * https://eugeneyan.com/
-        * https://applied-llms.org/
-        * https://huyenchip.com/
-        * https://omarkhattab.com/, https://x.com/lateinteraction
-        * https://www.daily.co/blog/author/kwindla-hultman-kramer/, https://x.com/kwindla
-        * https://leehanchung.github.io/
-        * https://x.com/jobergum
-        * https://crawshaw.io/
-        * https://vintagedata.org/blog/
-        * https://www.interconnects.ai/
-        * https://www.oneusefulthing.org/
-        * https://www.aisnakeoil.com/
-      * 新闻或者媒体
-        * https://x.com/swyx, https://news.smol.ai/
-        * https://www.dwarkesh.com/
-        * https://www.lesswrong.com/w/ai?sortedBy=magic, https://www.alignmentforum.org/
-        * https://gwern.net/
-    * 来源: [《我如何跟上 AI 进展（以及为什么你也必须这样做）- nilenso 博客》 --- How I keep up with AI progress (and why you must too) - nilenso blog](https://blog.nilenso.com/blog/2025/06/23/how-i-keep-up-with-ai-progress/)
-  * MoonShot-K2
-    * MoonCake发布了新的K2-MOE模型, 总共1T参数, 实际激活32B, 采用Muon优化器训练
-    * **TODO:** 可以看一下这个模型的具体细节
-    * 来源: [Kimi K2 是一种最先进的专家混合（MoE）语言模型 | Hacker News --- Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model | Hacker News](https://news.ycombinator.com/item?id=44533403)
+## 2025-07-14 Sleepy
 
-  ## 2025-07-17 Very Sleepy
+* 如何跟紧最近AI的进展:
+  * 一手信息永远都是最准确的; 关注值得信赖的人的comment和summary
+    * https://simonwillison.net/tags/ai/, Simon的Blog
+    * Andrej Karpathy
+    * https://every.to/chain-of-thought?sort=newest, 前沿AI的能力
+    * 各家公司的最新进展, blog, guides, cookbooks
+    * AI工程相关工程师
+      * https://hamel.dev/
+      * https://www.sh-reya.com/
+      * https://jxnl.co/
+      * https://eugeneyan.com/
+      * https://applied-llms.org/
+      * https://huyenchip.com/
+      * https://omarkhattab.com/, https://x.com/lateinteraction
+      * https://www.daily.co/blog/author/kwindla-hultman-kramer/, https://x.com/kwindla
+      * https://leehanchung.github.io/
+      * https://x.com/jobergum
+      * https://crawshaw.io/
+      * https://vintagedata.org/blog/
+      * https://www.interconnects.ai/
+      * https://www.oneusefulthing.org/
+      * https://www.aisnakeoil.com/
+    * 新闻或者媒体
+      * https://x.com/swyx, https://news.smol.ai/
+      * https://www.dwarkesh.com/
+      * https://www.lesswrong.com/w/ai?sortedBy=magic, https://www.alignmentforum.org/
+      * https://gwern.net/
+  * 来源: [《我如何跟上 AI 进展（以及为什么你也必须这样做）- nilenso 博客》 --- How I keep up with AI progress (and why you must too) - nilenso blog](https://blog.nilenso.com/blog/2025/06/23/how-i-keep-up-with-ai-progress/)
+* MoonShot-K2
+  * MoonCake发布了新的K2-MOE模型, 总共1T参数, 实际激活32B, 采用Muon优化器训练
+  * **TODO:** 可以看一下这个模型的具体细节
+  * 来源: [Kimi K2 是一种最先进的专家混合（MoE）语言模型 | Hacker News --- Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model | Hacker News](https://news.ycombinator.com/item?id=44533403)
 
-  * 机械臂相关更进，这里应该是开源的 [pollen-robotics/AmazingHand: 控制 AH!的代码和模型 --- pollen-robotics/AmazingHand: Code and model to control the AH!](https://github.com/pollen-robotics/AmazingHand)
-  * 美国智能建筑 [《Bedrock Robotics》 --- Bedrock Robotics](https://bedrockrobotics.com/news/introducing-bedrock-robotics)
-  * 将ELO分数加入到RAG的Ranker中 
-    * 看思路的话可能是类似于去学偏好，对query以及召回中采样的两个doc进行对比打分，最后形成ELO得分
-    * 核心在于逆分差得胜会让你的分剧烈变化，反之不然
-    * 为了解决召回质量低，但整体分偏高的问题，引入全局bias。
-    * 来源：[Show HN：使用国际象棋 Elo 分数改进搜索排名 | Hacker News --- Show HN: Improving search ranking with chess Elo scores | Hacker News](https://news.ycombinator.com/item?id=44582662)
-  
-  
-  
-  
-  
-  ## 2025-07-18 Binary Search
-  
-  * Self-Taught Engineers Often Outperform
+## 2025-07-17 Very Sleepy
+
+* 机械臂相关更进，这里应该是开源的 [pollen-robotics/AmazingHand: 控制 AH!的代码和模型 --- pollen-robotics/AmazingHand: Code and model to control the AH!](https://github.com/pollen-robotics/AmazingHand)
+* 美国智能建筑 [《Bedrock Robotics》 --- Bedrock Robotics](https://bedrockrobotics.com/news/introducing-bedrock-robotics)
+* 将ELO分数加入到RAG的Ranker中 
+  * 看思路的话可能是类似于去学偏好，对query以及召回中采样的两个doc进行对比打分，最后形成ELO得分
+  * 核心在于逆分差得胜会让你的分剧烈变化，反之不然
+  * 为了解决召回质量低，但整体分偏高的问题，引入全局bias。
+  * 来源：[Show HN：使用国际象棋 Elo 分数改进搜索排名 | Hacker News --- Show HN: Improving search ranking with chess Elo scores | Hacker News](https://news.ycombinator.com/item?id=44582662)
+
+## 2025-07-18 Binary Search
+
+* Self-Taught Engineers Often Outperform
     * 有师傅指路固然重要，但是带有明确目标的探索和坚韧不拔才能锻炼出优秀的工程师。也就是说要尝试从头到尾去做一个你没接触过的东西，在这个过程中你会学到很多。
     * 总的来说就是我们需要带有目的性的钻研，去挑战自己不懂的东西，自己尝试理解解决，而不是依靠教程，博客。不停地探索和试错，这种方式是学习地最好方式，去创造而不是依赖别人。
     * 有点费米的那个味道
     * 来源：[Self-Taught Engineers Often Outperform | michaelbastos.com](https://michaelbastos.com/blog/why-self-taught-engineers-often-outperform)
+    
+
+## 2025-07-19 U can U up
+
+* Favorite use case is writing log
+  * 讨论也很有意思。有些人觉得AI就应该替人类完成编程中琐碎的事情，避免人类进行频繁的上下文切换，方便人类更集中精力去做有创造力的事情；但是也有人觉得这种琐碎的事情也是编程的一部分，如果因为这样就感到烦为什么要编程。
+  * 另外一点就是说在AI时代，经验丰富程序员的意义在哪里？世界的价值观正在从know-how向know-what-you-need转变。你能实现的东西AI也能实现，关键在于你得指导AI你需要什么。同样的对于经验丰富的程序员，他们能凭借直觉（psychic way）发现问题的根源，并且有效的指导AI。但是我觉得新手也能通过询问AI解决方案一步一步到这个地步，虽然会慢一点，但是也能达到。
+  * 总结起来现在的AI就像是一个从来不会跟人沟通，从来不会说不的外包团队，具体的实现如何，目前有好有坏；同样的计算机领域在不断的抽象，并且提高抽象，AI将抽象带到了一个更新的高度。然而重要的警示是高级的抽象不能消除对底层原理理解的需求。越是高级复杂的抽象，越需要底层基础来支撑。**但是现在的自我反思发现错误的能力也很强，对外行人来说这是一个黑盒，除非能够保证100%可靠？**
+  * 回到这篇文章，文章很大一部分在探讨Jetbrain Python的Full Line Code Completition。PyCharm团队相当于为Python定制了一个专用的LLM，包括：
+    * 核心思路
+      * 使用llama.cpp以及llama架构训练1b模型，数据采用stack数据集，一个代码模型，剔除了注释（因为只想要模型去生成代码而不是注释，补全性质）
+      * 根据python的特性重新设计BPE tokenizer
+      * 移除了import语句（因为开发者经常在写代码的最后写import语句）
+    * 实际推理过程
+      * FP32到INT8量化
+      * Cache策略：在preload code的50%中载入代码，剩余的50%留给随处可能出来的代码
+  * 来源：[我最喜欢的 AI 应用场景是写日志 | Hacker News --- My favorite use-case for AI is writing logs | Hacker News](https://news.ycombinator.com/item?id=44599549)
+  * 这个作者的其它blog也值得一看：[存档 • 常规科技 • 衬衫 --- Archive • Normcore Tech • Buttondown](https://newsletter.vickiboykis.com/archive/)
+
