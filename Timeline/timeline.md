@@ -137,3 +137,17 @@ Code agent和RAG相关简介：
   * 来源：[我最喜欢的 AI 应用场景是写日志 | Hacker News --- My favorite use-case for AI is writing logs | Hacker News](https://news.ycombinator.com/item?id=44599549)
   * 这个作者的其它blog也值得一看：[存档 • 常规科技 • 衬衫 --- Archive • Normcore Tech • Buttondown](https://newsletter.vickiboykis.com/archive/)
 
+## 2025-07-22 Coincidence
+
+* Log by time, not by count
+  * 主要说的是如何记录log, 因为我不怎么打日志, 所以这边他的意见是
+    * 按照固定时间间隔打log. 原因是如果按照数量打印日志, 那么:
+      * 如果日志记录过多: 降低系统性能, 冗余日志不利于观测, 日志保存昂贵
+      * 如果日志记录过少: 不知道是否程序在运行, 降低观察性
+  * 讨论区意见: 要区分log和metric
+    * log指的是系统中重要的时间发生的时间点, 例如错误, 警告
+    * metric则是捕捉可量化的数据, 例如函数调用时间, 队列长度等等
+    * 同样的也有的人认为log和metric之间的界限再逐渐模糊, 存在互相转换工具
+    * Log: search, get context, read; Metric: measure, plot dashboards, define alerts
+  * 来源: [按时间记录，而非按数量记录 | Hacker News --- Log by time, not by count | Hacker News](https://news.ycombinator.com/item?id=44630927)
+
