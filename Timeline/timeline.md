@@ -151,3 +151,12 @@ Code agent和RAG相关简介：
     * Log: search, get context, read; Metric: measure, plot dashboards, define alerts
   * 来源: [按时间记录，而非按数量记录 | Hacker News --- Log by time, not by count | Hacker News](https://news.ycombinator.com/item?id=44630927)
 
+## 2025-07-23 Two clock
+
+* Qwen-Code3
+  * 主要是为了赶这一波Code Agent的潮流，后端模型是Aliyun自己训练的，前端基于Gemini-CLI改造
+  * 针对Development环境进行训练：
+    * 训练数据70%来自代码，原生256K上下文，借助YaRN扩展到1M上下文，这些都是code必备的操作。合成数据扩展，通过利用coder2.5对低质数据进行清洗和重写
+  * 评论区主要再说对于MOE架构和本地LLM，DRAM的带宽和单卡的性能（两块3090的提高微乎其微，内存带宽受限）是模型推理的瓶颈
+  * 另外一点就是动态量化技术，为重要的层分配更多的位，不那么重要的层分配少一点的位数
+  * 来源：[Qwen3-Coder: 如何本地运行 | Unsloth 文档 --- Qwen3-Coder: How to Run Locally | Unsloth Documentation](https://docs.unsloth.ai/basics/qwen3-coder-how-to-run-locally)，[Qwen3-Coder: 在世界中的自主编程 | Hacker News --- Qwen3-Coder: Agentic coding in the world | Hacker News](https://news.ycombinator.com/item?id=44653072)
