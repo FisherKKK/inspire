@@ -168,4 +168,22 @@ Code agent和RAG相关简介：
   * 这样的话将会导致所有的广告的收益都将被搜索引擎垄断。在传统搜索时代已经有了很多ad block插件，那么在大模型时代我们应该如何做这个ad block呢？
     * 最简单的也是通过AI来检测是否出现软广，然后AI rewrite
   * 同样的我感觉GEO（又叫AIO和传统SEO技术相对）的技术也应该要进行了解**TODO**
+  
+* Kagi搜索
+
+  * 开源了自己的vector search
+    * 添加了diverse特性（使搜索的结果diverse）
+    * 看他们的测试结果bge embedding model确实还是最好用的
+
+* Maven Vector Search
+
+  * 这个公司的主要业务看起来是一个在线教育
+    * 搜索：课程名称 + 课程描述 --> Embedding (这里是否AI生成描述扩展 + 可能query会更好呢)
+    * 分类：手动分类形成Topic + AI生成Topic描述（感觉这一步AI可以全自动）--> Embedding，为课程推荐主题或者查找主题相关的课程
+    * 个性化（推荐）：AI描述用户（职位 + 学习过的课程 + 点击过的课程 + 相关信息）--> Embedding 
+
+  * 来源：[Maven: Search, categorization, and personalization, all in a week with embeddings](https://maven.com/blog/embeddings)
+  * Embedding质量的榜单：[MTEB Leaderboard - a Hugging Face Space by mteb](https://huggingface.co/spaces/mteb/leaderboard)
+
+  
 
