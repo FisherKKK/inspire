@@ -160,3 +160,12 @@ Code agent和RAG相关简介：
   * 评论区主要再说对于MOE架构和本地LLM，DRAM的带宽和单卡的性能（两块3090的提高微乎其微，内存带宽受限）是模型推理的瓶颈
   * 另外一点就是动态量化技术，为重要的层分配更多的位，不那么重要的层分配少一点的位数
   * 来源：[Qwen3-Coder: 如何本地运行 | Unsloth 文档 --- Qwen3-Coder: How to Run Locally | Unsloth Documentation](https://docs.unsloth.ai/basics/qwen3-coder-how-to-run-locally)，[Qwen3-Coder: 在世界中的自主编程 | Hacker News --- Qwen3-Coder: Agentic coding in the world | Hacker News](https://news.ycombinator.com/item?id=44653072)
+
+## 2025-07-26 Green bean coffe
+
+* AI搜索降低了搜索界面的点击量
+  * 搜索引擎现在的策略是生成搜索结果的overview，那么很多用户基本上就不再会去点击真正的网站
+  * 这样的话将会导致所有的广告的收益都将被搜索引擎垄断。在传统搜索时代已经有了很多ad block插件，那么在大模型时代我们应该如何做这个ad block呢？
+    * 最简单的也是通过AI来检测是否出现软广，然后AI rewrite
+  * 同样的我感觉GEO（又叫AIO和传统SEO技术相对）的技术也应该要进行了解**TODO**
+
