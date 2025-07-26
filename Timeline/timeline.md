@@ -185,5 +185,4 @@ Code agent和RAG相关简介：
   * 来源：[Maven: Search, categorization, and personalization, all in a week with embeddings](https://maven.com/blog/embeddings)
   * Embedding质量的榜单：[MTEB Leaderboard - a Hugging Face Space by mteb](https://huggingface.co/spaces/mteb/leaderboard)
 
-  
 
