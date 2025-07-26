@@ -185,4 +185,31 @@ Code agent和RAG相关简介：
   * 来源：[Maven: Search, categorization, and personalization, all in a week with embeddings](https://maven.com/blog/embeddings)
   * Embedding质量的榜单：[MTEB Leaderboard - a Hugging Face Space by mteb](https://huggingface.co/spaces/mteb/leaderboard)
 
+## 2025-07-26 Early up
 
+* Don't download app, use the website
+  * 核心说的就是使用website能够避免隐私泄露，但是APP权限过高
+  * 来源：[不要下载应用，使用网站 | Hacker News --- Do not download the app, use the website | Hacker News](https://news.ycombinator.com/item?id=44689059)
+* [在游戏中编程车辆 | Hacker News --- Programming vehicles in games | Hacker News](https://news.ycombinator.com/item?id=44683682)，有意思但是我看不懂
+* [Asciinema: 录制和分享你的终端会话 | Hacker News --- Asciinema: Record and share your terminal sessions | Hacker News](https://news.ycombinator.com/item?id=44679048)
+  * 相当于对终端的录制，方便对终端进行replay
+  * 这还有个类似的：[charmbracelet/vhs: Your CLI home video recorder 📼](https://github.com/charmbracelet/vhs)
+* [通过 DKIM 重放攻击伪造 Google：技术剖析 | Hacker News --- Google spoofed via DKIM replay attack: A technical breakdown | Hacker News](https://news.ycombinator.com/item?id=44679854)
+  * DKIM攻击，看起来是通过replay密钥转发攻击。所以说官方的东西也不一定是保真的。优点狐假虎威的意思了。
+* 根据模型的大小来计算哪些GPU合适的工具
+  * [一款帮助计算应使用何种 GPU 的计算器 | Hacker News --- A GPU Calculator That Helps Calculate What GPU to Use | Hacker News](https://news.ycombinator.com/item?id=44676961)
+  * 这个工具计算的不是很精准，对于LLM的训练来说有很多优化：
+    * BF16训练，8bit Adam优化器（或者Muon）
+* Claude Team use CC
+  * 对于没有任何编程经验的人，通过CC进行自动化或者数据分析（财务数据分析）
+    * 技巧：
+      * 编写详细的Claude.md文件，记录workflow，tools，expections
+      * 通过MCP来处理敏感数据，限制CLI的权限
+  * 对于开发人员
+    * 快速的原型设计，从clean git status开始
+    * 测试生成和bug修复
+    * 复杂代码库的讲解
+    * 创建说明文档
+    * 快速代码翻译：例如在不熟悉rust情况下试下功能
+    * 技巧：
+      * 提示要详细，这里还是再说context engineering
