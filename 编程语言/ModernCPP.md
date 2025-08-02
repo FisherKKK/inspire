@@ -397,3 +397,103 @@ perf stat -e task-clock,cycles,instructions,cache-references,cache-misses,branch
 * [A64 SIMD Instruction List: SVE Instructions](https://dougallj.github.io/asil/)，上面的一个补充
 * [x86 and amd64 instruction reference](https://www.felixcloutier.com/x86/)，x86指令的指南
 
+
+
+## 10. Memory Order
+
+如下是一篇我非常喜欢的blog的浓缩：
+
+https://xorvoid.com/lockfree_programming_a_mental_model.html
+
+现代计算机（server）端一般都会有多插槽，多插槽允许我们插多个CPU芯片：
+
+- 对于dual-socket 每个socket 64core的机器来说，一共有128core
+- 如果适用Symmetric Multithreading（或者超线程）的话，我们将有256的线程
+
+![img](https://cdn.nlark.com/yuque/0/2025/png/23141164/1754032674022-f343562f-867b-44c0-bd14-6427ca18d844.png) ![img](https://cdn.nlark.com/yuque/0/2025/png/23141164/1754032685461-3cc62bcd-c1c2-4ade-9301-82e0442cc421.png)
+
+实际上的内存架构如图右，NUMA，每个CPU有自己亲和的memory，跨NUMA访问延迟会更高。
+
+因此类比来看，其实编程更像是在独立的计算机上编程。类比起来如下：
+
+| Super-computer  超级计算机                         | Modern CPU  现代 CPU                                         |
+| -------------------------------------------------- | ------------------------------------------------------------ |
+| Cluster Node Processor  集群节点处理器             | CPU Core  CPU 核心                                           |
+| Cluster Node Memory  集群节点内存                  | CPU Cache  CPU 缓存                                          |
+| Cluster Interconnect Fabric 集群互连结构           | NOC (Network On Chip) Mesh, QPI, Infinity Fabric, etc NOC（网络芯片）Mesh、QPI、Infinity Fabric 等 |
+| Packet Frame  数据包帧                             | Cache Line  缓存行                                           |
+| Maximum Transmision Unit (MTU) 最大传输单元（MTU） | Cache Line Size (64 bytes, 128 bytes, etc) 缓存行大小（64 字节，128 字节等） |
+| `msg_send(send_value)`                             | `*pointer_to_shared = send_value`                            |
+| `recv_value = msg_recv()`                          | `recv_value = *pointer_to_shared`                            |
+
+那么就会出现一些有意识但是直观的理解
+
+Load are frequently stale(过时的)
+
+```c++
+int *ptr_to_shared;
+void thread_1() {
+    while (1) {
+        int data = *ptr_to_shared;
+        if (data != *ptr_to_shared)
+            std::cout << "This can happend";
+    }
+}
+```
+
+可以理解，数据在发送-接收期间，原始的数据以及变化
+
+Storage take time to propagate
+
+```c++
+int *ptr_to_shared1;
+int *ptr_to_shared2;
+
+void thread_1() {
+    *ptr_to_shared1 = 1;
+    std::cout << "value2: " << *ptr_to_shared2;
+}
+
+void thread_2() {
+    *ptr_to_shared2 = 2;
+    std::cout << "value1: " << *ptr_to_shared1;
+}
+```
+
+发送和接收并非同步, 可以以任意的顺序到达
+
+Reordering: 数据的发送和接收时存在延迟的
+
+但是Fences bring order to Chaos
+
+```c++
+int    *ready_flag;  // init: *ready_flag == 0
+data_t *data;        // init: ???
+
+void writer_thread()
+{
+  *data = do_some_work_to_produce_data();
+  *ready_flag = 1; // 可以重排之上
+}
+
+data_t reader_thread()
+{
+  while (1) {
+    int ready = *ready_flag;
+    if (ready) break;
+  }
+  return *data;
+}
+```
+
+由于两个线程执行是乱序的, 所以结果很难保证;
+
+我们可以在第一个线程当中添加`store_fence`来防止重排, 强制顺序. 在下面添加`load_fence`. 那么下面不得不提store_release和load_acquire.
+
+现代CPU的目标:
+
+* 避免因为数据等待而stall
+* 因此会尽早开始load, 同时延迟store(异步提交)
+
+还有更严格的mem_fence, 是一个完整的内存屏障, C++原子序列一致性fence, 明确阻止所有重排.
+
