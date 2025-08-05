@@ -213,3 +213,28 @@ Code agent和RAG相关简介：
     * 快速代码翻译：例如在不熟悉rust情况下试下功能
     * 技巧：
       * 提示要详细，这里还是再说context engineering
+
+## 2025-08-05 Sea Push
+
+* Rethink Amazon S3 Vector
+  * 高性能向量搜索的一个主要问题是成本过高，难以大规模铺开；尤其是虽然数据集很大，但是Hot数据太少的情况下
+  * 大多数向量并没有实时驱动搜索过程（long tail vector），但是它们却保持着热成本
+  * 不需要向量数据库，内部实现扩展，外部暴露CRUD，同时带有S3的持久性，安全性和每字节成本
+  * 100-800ms亚秒级别：S3 Vector不适合实时的搜索，而是针对batch search, archival recall, background enrichment等非热场景；10-100毫秒：OpenSearch等系统
+  * 可以Hybrid两种策略，长时间未出现的查询可以迁移到S3（采用指标监控），查询编排（是否去S3中查询）。确实动态分层是比较合适，我感觉就和人的记忆一样，抓取user的query log，后台再从冷数据中拿出来。
+  * 如下是几个实例：
+    * 动态退化
+      * Write new vectors to OpenSearch.
+      * Monitor their query volume.
+      * After N days of inactivity, batch-migrate to S3 Vector Store.
+      * If a “cold” vector is accessed again, move it back to OpenSearch.
+    * 比较合适的用例：
+      * **Agent Memory/Knowledge Archives**: Massive context retention, legal/compliance logs, anything with high cardinality and low access.
+        代理内存/知识档案：海量上下文保留、法律/合规日志、任何具有高基数和低访问频率的内容。
+      * **Batch Enrichment and Analytics**: Nightly, weekly, or ad hoc jobs that can tolerate less-than-instant retrieval.
+        批量丰富和分析：可以容忍非即时检索的每日、每周或临时任务。
+      * **Regulatory Storage**: Write-once, read-rarely validation of model provenance or decision trails.
+        监管存储：对模型溯源或决策轨迹进行一次性写入、极少读取的验证。
+      * **Hot Path Leaders**: FAQ bots, typeahead search, recommendation feeds, and every other workload that dies on latency.
+        热路径领导者：常见问题解答机器人、自动补全搜索、推荐信息流，以及所有对延迟敏感的工作负载。
+  * 来源：[在规模上架构 GenAI：来自 Amazon S3 向量存储的经验教训和混合向量存储的微妙之处 | Caylent --- Architecting GenAI at Scale: Lessons from Amazon S3 Vector Store and the Nuances of Hybrid Vector Storage | Caylent](https://caylent.com/blog/architecting-gen-ai-at-scale-lessons-from-aws-s-3-vector-store-and-the-nuances-of-hybrid-vector-storage)
