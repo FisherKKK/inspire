@@ -238,3 +238,6 @@ Code agent和RAG相关简介：
       * **Hot Path Leaders**: FAQ bots, typeahead search, recommendation feeds, and every other workload that dies on latency.
         热路径领导者：常见问题解答机器人、自动补全搜索、推荐信息流，以及所有对延迟敏感的工作负载。
   * 来源：[在规模上架构 GenAI：来自 Amazon S3 向量存储的经验教训和混合向量存储的微妙之处 | Caylent --- Architecting GenAI at Scale: Lessons from Amazon S3 Vector Store and the Nuances of Hybrid Vector Storage | Caylent](https://caylent.com/blog/architecting-gen-ai-at-scale-lessons-from-aws-s-3-vector-store-and-the-nuances-of-hybrid-vector-storage)
+
+## 2025-10-10 Bitter Lessons
+
