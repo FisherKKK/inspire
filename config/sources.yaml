@@ -5,12 +5,15 @@ hacker_news:
   enabled: true
   api_url: "https://hacker-news.firebaseio.com/v0/topstories.json"
   item_url: "https://hacker-news.firebaseio.com/v0/item/{}.json"
-  max_items: 30
-  min_score: 100  # 最小点赞数
+  max_items: 100
+  min_score: 10  # 最小点赞数
 
 # RSS订阅源
 rss_feeds:
-  # AI/ML研究者和工程师
+  # ============================================
+  # AI/ML - 研究者和工程师
+  # ============================================
+
   - name: "Simon Willison - AI"
     url: "https://simonwillison.net/tags/ai/feed/"
     category: "AI/ML"
@@ -31,29 +34,350 @@ rss_feeds:
     category: "AI/ML"
     enabled: true
 
-  # AI新闻和媒体
+  - name: "Lilian Weng (OpenAI)"
+    url: "https://lilianweng.github.io/feed.xml"
+    category: "AI/ML"
+    enabled: true
+
+  - name: "Sebastian Raschka"
+    url: "https://sebastianraschka.com/rss_feed.xml"
+    category: "AI/ML"
+    enabled: true
+
+  - name: "Jay Alammar (Visualizing ML)"
+    url: "https://jalammar.github.io/feed.xml"
+    category: "AI/ML"
+    enabled: true
+
+  - name: "Shreya Shankar"
+    url: "https://www.sh-reya.com/feed"
+    category: "AI/ML"
+    enabled: true
+
+  # ============================================
+  # AI/ML - 公司博客
+  # ============================================
+
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss.xml"
+    category: "AI News"
+    enabled: true
+
+  - name: "Anthropic Blog"
+    url: "https://www.anthropic.com/news/rss.xml"
+    category: "AI News"
+    enabled: true
+
+  - name: "Google AI Blog"
+    url: "https://blog.research.google/feeds/posts/default"
+    category: "AI Research"
+    enabled: true
+
+  - name: "DeepMind Blog"
+    url: "https://deepmind.google/blog/rss.xml"
+    category: "AI Research"
+    enabled: false  # 更新不频繁
+
+  - name: "Meta AI Blog"
+    url: "https://ai.meta.com/blog/rss/"
+    category: "AI Research"
+    enabled: true
+
+  - name: "Hugging Face Blog"
+    url: "https://huggingface.co/blog/feed.xml"
+    category: "AI/ML"
+    enabled: true
+
+  # ============================================
+  # AI/ML - 新闻和聚合
+  # ============================================
+
   - name: "Smol AI News"
     url: "https://news.smol.ai/rss"
     category: "AI News"
     enabled: true
 
-  # 技术博客
+  - name: "The Gradient"
+    url: "https://thegradient.pub/rss/"
+    category: "AI Research"
+    enabled: true
+
+  - name: "LessWrong - AI"
+    url: "https://www.lesswrong.com/feed.xml?view=community-rss&karmaThreshold=30"
+    category: "AI Research"
+    enabled: true  # 内容较多，按需启用
+
+  # ============================================
+  # LLM Infrastructure & vLLM
+  # ============================================
+
+  - name: "Anyscale Blog"
+    url: "https://www.anyscale.com/blog/rss.xml"
+    category: "LLM Infrastructure"
+    enabled: true
+
+  - name: "Modal Blog"
+    url: "https://modal.com/blog/rss.xml"
+    category: "LLM Infrastructure"
+    enabled: true
+
+  - name: "vLLM GitHub Releases"
+    url: "https://github.com/vllm-project/vllm/releases.atom"
+    category: "LLM Infrastructure"
+    enabled: true
+
+  # ============================================
+  # 数据库系统
+  # ============================================
+
+  - name: "Postgres Blog"
+    url: "https://www.postgresql.org/about/news.rss"
+    category: "Database"
+    enabled: true
+
+  - name: "MySQL Server Blog"
+    url: "https://blogs.oracle.com/mysql/rss"
+    category: "Database"
+    enabled: false  # Oracle博客更新较慢
+
+  - name: "Redis Blog"
+    url: "https://redis.io/blog/rss.xml"
+    category: "Database"
+    enabled: true
+
+  - name: "ClickHouse Blog"
+    url: "https://clickhouse.com/blog/rss.xml"
+    category: "Database"
+    enabled: true
+
+  - name: "DuckDB Blog"
+    url: "https://duckdb.org/news/rss.xml"
+    category: "Database"
+    enabled: true
+
+  - name: "Andy Pavlo (CMU Database)"
+    url: "https://www.cs.cmu.edu/~pavlo/blog/feed.xml"
+    category: "Database"
+    enabled: false  # 更新不频繁，但质量高
+
+  - name: "Use The Index, Luke"
+    url: "https://use-the-index-luke.com/blog/feed"
+    category: "Database"
+    enabled: false  # SQL优化教程
+
+  # ============================================
+  # 操作系统 & 系统编程
+  # ============================================
+
+  - name: "LWN.net (Linux Weekly News)"
+    url: "https://lwn.net/headlines/rss"
+    category: "Operating Systems"
+    enabled: true
+
+  - name: "Julia Evans"
+    url: "https://jvns.ca/atom.xml"
+    category: "Systems"
+    enabled: true
+
+  - name: "Amos (fasterthanlime)"
+    url: "https://fasterthanli.me/index.xml"
+    category: "Systems"
+    enabled: true
+
+  - name: "Brendan Gregg (Performance)"
+    url: "https://www.brendangregg.com/blog/rss.xml"
+    category: "Performance"
+    enabled: true
+
+  - name: "The Cloudflare Blog"
+    url: "https://blog.cloudflare.com/rss/"
+    category: "Systems"
+    enabled: true
+
+  # ============================================
+  # 性能优化
+  # ============================================
+
+  - name: "Daniel Lemire (SIMD/Performance)"
+    url: "https://lemire.me/blog/feed/"
+    category: "Performance"
+    enabled: true
+
+  - name: "Easyperf (Performance Analysis)"
+    url: "https://easyperf.net/feed.xml"
+    category: "Performance"
+    enabled: true
+
+  - name: "Travis Downs (Performance)"
+    url: "https://travisdowns.github.io/feed.xml"
+    category: "Performance"
+    enabled: false  # 更新不频繁，但深度文章
+
+  - name: "Mechanical Sympathy"
+    url: "https://mechanical-sympathy.blogspot.com/feeds/posts/default"
+    category: "Performance"
+    enabled: false  # Martin Thompson，已停更但经典
+
+  # ============================================
+  # C++ 编程
+  # ============================================
+
+  - name: "C++ Stories (Bartłomiej Filipek)"
+    url: "https://www.cppstories.com/index.xml"
+    category: "C++"
+    enabled: true
+
+  - name: "Modernes C++ (Rainer Grimm)"
+    url: "https://www.modernescpp.com/index.php/feed/"
+    category: "C++"
+    enabled: true
+
+  - name: "Fluent C++ (Jonathan Boccara)"
+    url: "https://www.fluentcpp.com/feed/"
+    category: "C++"
+    enabled: true
+
+  - name: "Arthur O'Dwyer"
+    url: "https://quuxplusone.github.io/blog/feed.xml"
+    category: "C++"
+    enabled: true
+
+  - name: "Sutter's Mill (Herb Sutter)"
+    url: "https://herbsutter.com/feed/"
+    category: "C++"
+    enabled: false  # 更新较少
+
+  - name: "ISO C++ Blog"
+    url: "https://isocpp.org/blog/rss/category/news"
+    category: "C++"
+    enabled: true
+
+  # ============================================
+  # 通用技术 & 工程实践
+  # ============================================
+
   - name: "Vicki Boykis - Normcore Tech"
     url: "https://vickiboykis.com/feed/"
     category: "Engineering"
     enabled: true
 
-  # LessWrong AI
-  - name: "LessWrong - AI"
-    url: "https://www.lesswrong.com/feed.xml?view=community-rss&karmaThreshold=30"
-    category: "AI Research"
-    enabled: false  # 内容较多，按需启用
+  - name: "High Scalability"
+    url: "http://feeds.feedburner.com/HighScalability"
+    category: "Engineering"
+    enabled: true
 
-  # Andrej Karpathy (如果有RSS)
-  # - name: "Andrej Karpathy"
-  #   url: "https://karpathy.github.io/feed.xml"
-  #   category: "AI/ML"
-  #   enabled: true
+  - name: "The Morning Paper"
+    url: "https://blog.acolyer.org/feed/"
+    category: "Research"
+    enabled: false  # 已停更，但经典论文解读
+
+  - name: "InfoQ"
+    url: "https://www.infoq.com/feed/"
+    category: "Tech News"
+    enabled: false  # 内容较多，需要时启用
+
+  - name: "ACM Queue"
+    url: "https://queue.acm.org/rss/feeds/queuecontent.xml"
+    category: "Research"
+    enabled: true
+
+  - name: "Martin Fowler"
+    url: "https://martinfowler.com/feed.atom"
+    category: "Engineering"
+    enabled: true
+
+  - name: "Netflix Tech Blog"
+    url: "https://netflixtechblog.com/feed"
+    category: "Engineering"
+    enabled: true
+
+  - name: "Uber Engineering Blog"
+    url: "https://www.uber.com/blog/engineering/rss/"
+    category: "Engineering"
+    enabled: true
+
+  # ============================================
+  # Rust (作为C++的现代替代)
+  # ============================================
+
+  - name: "Rust Blog"
+    url: "https://blog.rust-lang.org/feed.xml"
+    category: "Rust"
+    enabled: true
+
+  - name: "This Week in Rust"
+    url: "https://this-week-in-rust.org/rss.xml"
+    category: "Rust"
+    enabled: true
+
+  # ============================================
+  # 技术新闻聚合
+  # ============================================
+
+  - name: "Lobsters (Tech News)"
+    url: "https://lobste.rs/rss"
+    category: "Tech News"
+    enabled: true
+
+  - name: "Dev.to - AI/ML"
+    url: "https://dev.to/feed/tag/ai"
+    category: "AI/ML"
+    enabled: false  # 质量参差不齐
+
+  - name: "Medium - Towards Data Science"
+    url: "https://towardsdatascience.com/feed"
+    category: "AI/ML"
+    enabled: false  # 需要Medium订阅
+
+  # ============================================
+  # 中文技术社区 (如果可访问)
+  # ============================================
+
+  # 注意：国内源可能需要特殊网络环境访问国外GitHub Actions
+
+  # - name: "掘金 - 后端"
+  #   url: "https://juejin.cn/rss/tag/backend"
+  #   category: "中文技术"
+  #   enabled: false
+
+  # - name: "腾讯云开发者社区"
+  #   url: "https://cloud.tencent.com/developer/feed"
+  #   category: "中文技术"
+  #   enabled: false
+
+  # ============================================
+  # 学术会议和期刊 (精选)
+  # ============================================
+
+  - name: "arXiv - AI (最新)"
+    url: "http://export.arxiv.org/rss/cs.AI"
+    category: "Research"
+    enabled: false  # 内容极多，慎重启用
+
+  - name: "arXiv - Machine Learning"
+    url: "http://export.arxiv.org/rss/cs.LG"
+    category: "Research"
+    enabled: false  # 内容极多，慎重启用
+
+  - name: "Papers With Code - Trending"
+    url: "https://paperswithcode.com/feeds/latest.xml"
+    category: "Research"
+    enabled: true
+
+  # ============================================
+  # 开源项目和工具
+  # ============================================
+
+  - name: "GitHub Engineering Blog"
+    url: "https://github.blog/engineering/feed/"
+    category: "Engineering"
+    enabled: true
+
+  # GitHub Trending 需要第三方服务，可以考虑：
+  # - name: "GitHub Trending - All"
+  #   url: "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml"
+  #   category: "Open Source"
+  #   enabled: false
 
 # Twitter/X账号 (通过Nitter RSS或其他RSS bridge)
 # 注意: Twitter官方不提供RSS，需要使用第三方服务
