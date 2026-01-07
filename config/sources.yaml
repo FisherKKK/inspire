@@ -1,0 +1,91 @@
+# RSS源和内容源配置
+
+# HackerNews
+hacker_news:
+  enabled: true
+  api_url: "https://hacker-news.firebaseio.com/v0/topstories.json"
+  item_url: "https://hacker-news.firebaseio.com/v0/item/{}.json"
+  max_items: 30
+  min_score: 100  # 最小点赞数
+
+# RSS订阅源
+rss_feeds:
+  # AI/ML研究者和工程师
+  - name: "Simon Willison - AI"
+    url: "https://simonwillison.net/tags/ai/feed/"
+    category: "AI/ML"
+    enabled: true
+
+  - name: "Eugene Yan"
+    url: "https://eugeneyan.com/feed.xml"
+    category: "AI/ML"
+    enabled: true
+
+  - name: "Chip Huyen"
+    url: "https://huyenchip.com/feed.xml"
+    category: "AI/ML"
+    enabled: true
+
+  - name: "Hamel Husain"
+    url: "https://hamel.dev/blog/index.xml"
+    category: "AI/ML"
+    enabled: true
+
+  # AI新闻和媒体
+  - name: "Smol AI News"
+    url: "https://news.smol.ai/rss"
+    category: "AI News"
+    enabled: true
+
+  # 技术博客
+  - name: "Vicki Boykis - Normcore Tech"
+    url: "https://vickiboykis.com/feed/"
+    category: "Engineering"
+    enabled: true
+
+  # LessWrong AI
+  - name: "LessWrong - AI"
+    url: "https://www.lesswrong.com/feed.xml?view=community-rss&karmaThreshold=30"
+    category: "AI Research"
+    enabled: false  # 内容较多，按需启用
+
+  # Andrej Karpathy (如果有RSS)
+  # - name: "Andrej Karpathy"
+  #   url: "https://karpathy.github.io/feed.xml"
+  #   category: "AI/ML"
+  #   enabled: true
+
+# Twitter/X账号 (通过Nitter RSS或其他RSS bridge)
+# 注意: Twitter官方不提供RSS，需要使用第三方服务
+twitter_accounts:
+  - username: "karpathy"
+    name: "Andrej Karpathy"
+    category: "AI/ML"
+    enabled: false  # 需要配置RSS bridge
+
+  - username: "lateinteraction"
+    name: "Omar Khattab"
+    category: "AI/ML"
+    enabled: false
+
+# 内容过滤关键词 (可选)
+# 如果为空，则不过滤
+filter_keywords:
+  include: []  # 包含这些关键词的文章会被保留
+  exclude: []  # 包含这些关键词的文章会被排除
+
+# LLM配置 (用于生成摘要)
+llm:
+  provider: "anthropic"  # 或 "openai"
+  model: "claude-3-5-haiku-20241022"  # 使用快速模型节省成本
+  api_key_env: "ANTHROPIC_AUTH_TOKEN"  # 环境变量名
+  base_url_env: "ANTHROPIC_BASE_URL"
+  max_tokens: 200  # 每篇文章摘要的最大token数
+  temperature: 0.3
+
+# 输出配置
+output:
+  directory: "daily-digest"
+  filename_format: "digest-{date}.md"  # {date} 会被替换为实际日期
+  max_days_to_keep: 30  # 保留最近30天的文件
+  timezone: "Asia/Shanghai"
